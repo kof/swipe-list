@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html charset=utf-8"/>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <link href="../jquery-swipe-list.css" type="text/css" media="all" rel="stylesheet"/>
+
+        <script src="http://192.168.77.73:8080/target/target-script-min.js#anonymous"></script>
+        <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
+        <script src="../bower_components/jquery.event.move/js/jquery.event.move.js"></script>
+        <style>
+            * { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
+            body {
+                margin: 0;
+            }
+            .list {
+                position: absolute;
+                width: 100%;
+                height: 200px;
+                border: 1px solid red;
+                overflow: hidden;
+            }
+            .list-item {
+                position: relative;
+                height: 40px;
+                border-bottom: 1px solid #333;
+                box-sizing: border-box;
+                background: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="list">
+            <div class="list-item"></div>
+            <div class="list-item"></div>
+            <div class="list-item"></div>
+            <div class="list-item"></div>
+            <div class="list-item"></div>
+
+            <div class="list-item"></div>
+            <div class="list-item"></div>
+            <div class="list-item"></div>
+            <div class="list-item"></div>
+            <div class="list-item"></div>
+
+            <div class="list-item"></div>
+            <div class="list-item"></div>
+            <div class="list-item"></div>
+            <div class="list-item"></div>
+            <div class="list-item"></div>
+        </div>
+
+        <script>
+        (function() {
+            // Avoid caching by wrong headers.
+            $.ajax({
+                dataType: 'script',
+                cache: false,
+                url: '../jquery.swipe-list.js',
+                success: bind
+            })
+
+            var data = [],
+                i
+
+            for (i = 0; i < 100; i++) {
+                data.push({name: 'Item ' + i})
+            }
+
+            function bind() {
+                $('.list').swipeList({
+                    items: '.list-item',
+                    data: data,
+                    render: function($el, data) {
+                        $el[0].textContent = data.name
+                    }
+                })
+            }
+
+            // Prevent scrolling.
+            $(window).on('touchmove', function(e) {
+                e.preventDefault()
+            })
+
+        }())
+        </script>
+    </body>
+</html>
+
+
+
