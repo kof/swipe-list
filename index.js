@@ -35,12 +35,27 @@ SwipeList.defaults = {
 SwipeList.prototype.init = function() {
     this.elements.items = this.elements.container.find(this.options.items)
     this.elements.container.addClass('swipe-list')
+    this.refresh()
+    this._bind()
+    this.data(this.options.data)
+}
+
+SwipeList.prototype.refresh = function() {
     this._calcDimensions()
     this._splitPages()
     this._insertPages()
+    return this
+}
+
+SwipeList.prototype.data = function(data) {
+    if (!data) return this.options.data
+    if (!data.length) return this
+    this.options.data = data
     this._renderPage(0)
     this._renderPage(1)
-    this._bind()
+    if (this._currentVirtualPage > 0) this._renderPage(2)
+
+    return this
 }
 
 SwipeList.prototype._bind = function() {
@@ -63,9 +78,12 @@ SwipeList.prototype._splitPages = function() {
         pageNr, itemNr = 0, itemNrInPage, $page,
         $pages = $()
 
+    if (this._itemsPerPage < 1) return
+
     for (pageNr = 0; pageNr < this.options.pages; pageNr++) {
         $page = $('<div class="swipe-list-page swipe-list-page-'+ pageNr +'"></div>')
         $pages = $pages.add($page)
+
         for (itemNrInPage = 0; itemNrInPage < this._itemsPerPage; itemNrInPage++) {
             if ($items[itemNr]) $items.eq(itemNr).appendTo($page)
             itemNr++
