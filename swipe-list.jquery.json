@@ -1,0 +1,29 @@
+{
+  "name": "swipe-list",
+  "description": "Infinite scroll replacement for weak mobile devices.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Oleg Slobodskoi",
+    "email": "oleg008@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kof/swipe-list.git"
+  },
+  "keywords": [
+    "swipe",
+    "mobile",
+    "touch",
+    "infinite",
+    "list"
+  ],
+  "engines": {},
+  "devDependencies": {},
+  "scripts": {},
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ]
+}

@@ -9,7 +9,6 @@
     "commit": "a0360758a689c0aa3906837816182c7f97219884"
   },
   "_source": "git://github.com/component/transform-property.git",
-  "_target": "~0.0.1",
-  "_originalSource": "transform-property",
-  "_direct": true
+  "_target": "0.0.1",
+  "_originalSource": "transform-property"
 }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>animationFrame</title>
+
+    </head>
+    <body>
+        <h3>Fixing ios6 issues</h3>
+        <div id="rate"></div>
+        <iframe src="./iframe.html"></iframe>
+        <script src="../AnimationFrame.js"></script>
+        <script src="../FpsMeter.js"></script>
+
+        <script>
+        (function() {
+            var animationFrame = new AnimationFrame(),
+                fpsMeter = new FpsMeter();
+
+            (function animate() {
+                animationFrame.request(function() {
+                    fpsMeter.tick();
+                    animate();
+                });
+            }());
+
+            var rateElem = document.getElementById('rate');
+            fpsMeter.start(function(fps) {
+                rateElem.innerHTML = fps + ' FPS';
+            });
+        }())
+        </script>
+    </body>
+</html>

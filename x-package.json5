@@ -1,0 +1,43 @@
+{
+    name: 'swipe-list',
+    description: 'Infinite scroll replacement for weak mobile devices.',
+    version: '0.1.0',
+    author: {
+        name: 'Oleg Slobodskoi',
+        email: 'oleg008@gmail.com'
+    },
+    repository: {
+        type: 'git',
+        url: 'git@github.com:kof/swipe-list.git'
+    },
+    keywords: ['swipe', 'mobile', 'touch', 'infinite', 'list'],
+    engines: {},
+    devDependencies: {},
+    scripts: {},
+    licenses: [
+        {
+           type: 'MIT',
+           url: 'http://www.opensource.org/licenses/mit-license.php'
+        }
+    ],
+    overlay: {
+        npm: {
+            devDependencies: {
+                browserify: '3.24.13',
+                'uglify-js': '2.4.x'
+            }
+        },
+        bower: {
+            dependencies: {
+                'transform-property': '0.0.1'
+            },
+            devDependencies: {
+                'animation-frame': '0.1.6',
+                'jquery.event.move': '1.3.6',
+                jquery: '2.1.0'
+            }
+        },
+        component: true,
+        jquery: true
+    }
+}
