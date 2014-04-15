@@ -120,14 +120,21 @@ SwipeList.prototype._move = function($el, callback) {
         o = this.options
 
     this._moving = true
+    this._emit('changestart')
+
     this._onceTransitionEnd($el[0], o.duration, function() {
         self._moving = false
         callback()
+        self._emit('changeend')
     })
 
     requestAnimationFrame(function() {
         self._setTranslateY($el[0], 0)
     })
+}
+
+SwipeList.prototype._emit = function(event) {
+    this.elements.container.trigger(event + '.swipelist')
 }
 
 SwipeList.prototype._setTranslateY = function(el, y, removeTransition) {

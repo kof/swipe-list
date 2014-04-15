@@ -107,12 +107,12 @@
                         $el[0].textContent = data ? data.name : ''
                     }
                 })
-                setTimeout(function() {
-                    //$('.list2').swipeList('data', data)
-                }, 100)
 
-
+                $('body').on('changestart.swipelist changeend.swipelist', function(e) {
+                    console.log(e.type)
+                })
             }
+
             AnimationFrame.shim()
             // Prevent scrolling.
             $(window).on('touchmove', function(e) {
