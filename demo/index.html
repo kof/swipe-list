@@ -10,6 +10,8 @@
         <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
         <script src="../bower_components/animation-frame/AnimationFrame.js"></script>
         <script src="../bower_components/jquery.event.move/js/jquery.event.move.js"></script>
+        <script src="../dist/jquery.swipe-list.js"></script>
+
         <style>
             * { -webkit-tap-highlight-color: rgba(0,0,0,0); }
 
@@ -77,6 +79,7 @@
 
         <script>
         (function() {
+            /*
             // Avoid caching by wrong headers.
             $.ajax({
                 dataType: 'script',
@@ -84,6 +87,7 @@
                 url: '../dist/jquery.swipe-list.js',
                 success: bind
             })
+            */
 
             var data = [],
                 i
@@ -92,6 +96,7 @@
                 data.push({name: 'Item ' + i})
             }
 
+            bind()
             function bind() {
                 $('.list1').swipeList({
                     items: '.list-item',
@@ -108,6 +113,7 @@
                     }
                 })
 
+                $('.list2').swipeList('data', data)
                 $('body').on('changestart.swipelist changeend.swipelist', function(e) {
                     console.log(e.type)
                 })
