@@ -1,0 +1,14 @@
+{
+  "name": "transform-property",
+  "homepage": "https://github.com/component/transform-property",
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "a0360758a689c0aa3906837816182c7f97219884"
+  },
+  "_source": "git://github.com/component/transform-property.git",
+  "_target": "0.0.1",
+  "_originalSource": "transform-property"
+}

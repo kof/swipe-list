@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>animationFrame</title>
+        <meta name=viewport content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0"/>
+        <style>
+            #object {
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                top: 150px;
+                background: red;
+            }
+        </style>
+        <script src="../AnimationFrame.js"></script>
+        <script src="../FpsMeter.js"></script>
+    </head>
+    <body>
+        <h3>Running custom frame rate 20 FPS</h3>
+        <div id="rate"></div>
+        <div id="object"></div>
+        <script>
+        (function() {
+            var animationFrame = new AnimationFrame(20),
+                fpsMeter = new FpsMeter(),
+                wWidth = 500,
+                left = 0,
+                dir = 'right',
+                objectElement = document.getElementById('object');
+
+            function animate() {
+                if (left + 50 >= wWidth) {
+                    dir = 'left';
+                } else if (left <= 0) {
+                    dir = 'right';
+                }
+
+                if (dir == 'right') {
+                    left += 1;
+                } else {
+                    left -= 1;
+                }
+
+                objectElement.style.left = left + 'px';
+
+                fpsMeter.tick();
+                animationFrame.request(animate);
+            }
+
+            animate();
+
+            var rateElem = document.getElementById('rate');
+            fpsMeter.start(function(fps) {
+                rateElem.innerHTML = fps + ' FPS';
+            });
+
+        }());
+        </script>
+    </body>
+</html>

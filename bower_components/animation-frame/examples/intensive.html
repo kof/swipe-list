@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>animationFrame</title>
+
+    </head>
+    <body>
+        <h3>Doing expensive calculation for each frame</h3>
+        <div id="rate"></div>
+        <script src="../AnimationFrame.js"></script>
+        <script src="../FpsMeter.js"></script>
+
+        <script>
+        (function() {
+            var animationFrame = new AnimationFrame(),
+                fpsMeter = new FpsMeter();
+
+            (function animate() {
+                animationFrame.request(function() {
+                    for (var i=0; i<200000; i++) {
+                        new Date();
+                    }
+                    fpsMeter.tick();
+                    animate();
+                });
+            }());
+
+            var rateElem = document.getElementById('rate');
+            fpsMeter.start(function(fps) {
+                rateElem.innerHTML = fps + ' FPS';
+            });
+        }())
+        </script>
+    </body>
+</html>
