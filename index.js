@@ -58,6 +58,10 @@ SwipeList.prototype.data = function(data) {
     return this
 }
 
+SwipeList.prototype.getContentHeight = function() {
+    return this._itemHeight * this._itemsPerPage
+}
+
 SwipeList.prototype._bind = function() {
     this.elements.container
         .on('movestart', this._onMoveStart.bind(this))
