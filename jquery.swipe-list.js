@@ -17,7 +17,7 @@ $.fn.swipeList = function(options) {
         var $this = $(this),
             inst = $this.data('swipeList')
 
-        if (inst) {
+        if (inst || typeof options == 'string') {
             ret = inst[options].apply(inst, args)
             if (ret === inst) ret = null
         } else {
