@@ -98,21 +98,18 @@
 
             bind()
             function bind() {
-                /*
                 $('.list1').swipeList({
                     items: '.list-item',
                     data: data,
-                    render: function($el, data) {
-                        $el[0].textContent = data ? data.name : ''
+                    render: function(el, data) {
+                        el.textContent = data ? data.name : ''
                     }
                 })
-*/
 
-console.log($('.list1').swipeList('getContentHeight'))
                 $('.list2').swipeList({
                     items: '.list-item',
-                    render: function($el, data) {
-                        $el[0].textContent = data ? data.name : ''
+                    render: function(el, data) {
+                        el.textContent = data ? data.name : ''
                     }
                 })
 

@@ -1,7 +1,7 @@
 {
   "name": "swipe-list",
   "description": "Infinite scroll replacement for weak mobile devices.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": {
     "name": "Oleg Slobodskoi",
     "email": "oleg008@gmail.com"

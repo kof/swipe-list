@@ -109,11 +109,10 @@ SwipeList.prototype._renderPage = function(virtualPageNr) {
         realPageNr = virtualPageNr % o.pages,
         realElemNr = realPageNr * this._itemsPerPage,
         virtualElemNr = virtualPageNr *  this._itemsPerPage,
-        i, $item
+        i
 
     for (i = 0; i < this._itemsPerPage; i++) {
-        $item = this.elements.items.eq(realElemNr)
-        o.render($item, o.data[virtualElemNr])
+        o.render(this.elements.items[realElemNr], o.data[virtualElemNr])
         realElemNr++
         virtualElemNr++
     }
